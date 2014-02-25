@@ -1,0 +1,1 @@
+Search.setIndex({objects:{},terms:{index:0,search:0,document:0,twofold:0,goal:0,doc:0,modul:0,welcom:0,some:0,indic:0,content:0,stuff:0,thi:0,tabl:0,test:0,pierr:0,page:0,more:0},objtypes:{},titles:["Welcome to Pierre Docs&#8217;s documentation!"],objnames:{},filenames:["index"]})

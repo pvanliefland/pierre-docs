@@ -2,4 +2,12 @@ Installation
 =======================================
 
 
-To install Snowcap admin bundle
+Do this
+---------
+
+dqsdqsdqsdqs
+
+Do that
+-----------
+
+qdsdqsdqsqds

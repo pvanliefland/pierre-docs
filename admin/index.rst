@@ -5,7 +5,7 @@ Snowcap admin bundle
 Intro etc
 
 .. toctree::
-:maxdepth: 2
+   :maxdepth: 2
 
-    installation
-    admin_classes
+   installation
+   admin_classes

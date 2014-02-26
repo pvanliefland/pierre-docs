@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Symfony Starter &mdash; Pierre Docs 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pierre Docs 1.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">Pierre Docs 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="symfony-starter">
+<h1>Symfony Starter<a class="headerlink" href="#symfony-starter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-your-local-working-copy">
+<h2>1. Create your local working copy<a class="headerlink" href="#create-your-local-working-copy" title="Permalink to this headline">¶</a></h2>
+<p>Go to your project directory and use composer to initialize your project:</p>
+<div class="highlight-python"><pre>cd /path/to/your/www_directory
+composer create-project snowcap/symfony-starter-edition PROJECTNAME.local 2.3.x-dev</pre>
+</div>
+<p>The create-project command will initialize a fresh new Symfony2 project, install the basic dependencies, and ask you
+to complete interactively the parameters.yml file.</p>
+<p>Usually, the defaults are ok, and you can just press enter to keep the default. The following parameters need to be
+entered manually:</p>
+<ul class="simple">
+<li>The database name (the lowercase version of the project name is usually ok)</li>
+<li>The database user</li>
+<li>The database password</li>
+<li>Your sentry DSN (if you don&#8217;t know what it is, can&#8217;t find it, or can&#8217;t create a new one, please ask your project
+manager or system administrator to help you)</li>
+<li>Answer yes when the prompt asks you to remove existing VCS history</li>
+</ul>
+</div>
+<div class="section" id="git-setup">
+<h2>2. Git setup<a class="headerlink" href="#git-setup" title="Permalink to this headline">¶</a></h2>
+<p>Then, you can Initialize your working copy and remote repository:</p>
+<div class="highlight-python"><pre>cd /path/to/your/www_directory/PROJECTNAME.local
+git init
+git remote add origin ssh://git.snowcap.be/var/git/PROJECTNAME.git</pre>
+</div>
+<p>If you don&#8217;t know which git repository to use, ask Edwin.</p>
+</div>
+<div class="section" id="generate-your-first-bundle">
+<h2>3. Generate your first bundle<a class="headerlink" href="#generate-your-first-bundle" title="Permalink to this headline">¶</a></h2>
+<p>You can then create your first bundle:</p>
+<div class="highlight-python"><pre>./app/console generate:bundle</pre>
+</div>
+<p>The generate:bundle command will prompt you to choose the following:</p>
+<ul class="simple">
+<li>The Bundle namespace (ProjectName/BundleName, e.a SomeNamespace/SomeBundle)</li>
+<li>Bundle name (keep the default)</li>
+<li>Target directory (keep the default)</li>
+<li>Configuration format (choose &#8220;annotation&#8221;)</li>
+<li>Whether you want to generate the whole directory structure (choose &#8220;no&#8221;)</li>
+<li>Confirmation (you can say &#8220;yes&#8221;)</li>
+<li>Whether you want to update the Kernel automatically (say &#8220;yes&#8221;)</li>
+<li>Whether you want to update the Routing automatically (say &#8220;yes&#8221;)</li>
+</ul>
+<p>In order to comply with our standard practice, you will need to perform 2 more steps:</p>
+<p>In /path/to/your/project/directory/src/SomeNamespace/SomeBundle/Resources/config, rename services.xml to services.yml,
+and clear the file content.</p>
+<p>In /path/to/your/project/directory/src/SomeNamespace/SomeBundle/DependencyInjection/YourBundleNameExtension, replace:</p>
+<div class="highlight-python"><pre>$loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+$loader-&gt;load('services.xml');</pre>
+</div>
+<p>by:</p>
+<div class="highlight-python"><pre>$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+$loader-&gt;load('services.yml');</pre>
+</div>
+</div>
+<div class="section" id="check-the-result-in-your-browser">
+<h2>4. Check the result in your browser<a class="headerlink" href="#check-the-result-in-your-browser" title="Permalink to this headline">¶</a></h2>
+<p>You can then edit your host file in order to be able to access the website. On Mac OS, you can open the terminal and
+type:</p>
+<div class="highlight-python"><pre>sudo nano /etc/hosts</pre>
+</div>
+<p>Add the following lines to the host file:</p>
+<div class="highlight-python"><pre>127.0.0.1 PROJECTNAME.local</pre>
+</div>
+<dl class="docutils">
+<dt>Normally, you can then access the newly created bundle in your browser::</dt>
+<dd><a class="reference external" href="http://PROJECTNAME.local/hello/you">http://PROJECTNAME.local/hello/you</a></dd>
+</dl>
+</div>
+<div class="section" id="commit-and-push">
+<h2>5. Commit and push<a class="headerlink" href="#commit-and-push" title="Permalink to this headline">¶</a></h2>
+<p>Assuming you are still in your project directory:</p>
+<div class="highlight-python"><pre>git add .
+git commit -m "Project setup"
+git push origin master</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Symfony Starter</a><ul>
+<li><a class="reference internal" href="#create-your-local-working-copy">1. Create your local working copy</a></li>
+<li><a class="reference internal" href="#git-setup">2. Git setup</a></li>
+<li><a class="reference internal" href="#generate-your-first-bundle">3. Generate your first bundle</a></li>
+<li><a class="reference internal" href="#check-the-result-in-your-browser">4. Check the result in your browser</a></li>
+<li><a class="reference internal" href="#commit-and-push">5. Commit and push</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/symfony_starter.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">Pierre Docs 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Pierre Vanliefland.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

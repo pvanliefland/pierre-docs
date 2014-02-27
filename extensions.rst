@@ -16,22 +16,23 @@ Then define the namespace, and the class like the example below::
 
 	class SiteExtension extends \Twig_Extension
 	{
-    public function getName()
-    {
-        return 'site_extension';
-    }
+	    public function getName()
+	    {
+	        return 'site_extension';
+	    }
 
-    public function getFilters()
-    {
-        return [
-            new \Twig_SimpleFilter(‘yourfiltername', [$this, 'YourFunctionName'], array('is_safe' => array('html'))),
-        ];
-    }
+	    public function getFilters()
+	    {
+	        return [
+	            new \Twig_SimpleFilter(‘yourfiltername', [$this, 'YourFunctionName'], array('is_safe' => array('html'))),
+	        ];
+	    }
 
-    public function YourFunctionName($parameter)
-    {
-        return [];
-    }
+	    public function YourFunctionName($parameter)
+	    {
+	        return [];
+	    }
+	}
 
 2. Register an Extension as a Service
 -------------------------------------

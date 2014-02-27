@@ -40,10 +40,10 @@ Then define the namespace, and the class like the example below::
 In src/YourNamespace/YourBundle/config/services.yml file, add those lines::
 
 	# TwigExtensions
-   YourNamespace.twig.site_extension:
-        class: YourNamespace\YourBundle\Twig\Extension\SiteExtension
-        tags:
-            - { name: twig.extension }
+	YourNamespace.twig.site_extension:
+		class: YourNamespace\YourBundle\Twig\Extension\SiteExtension
+		tags:
+			- { name: twig.extension }
 
 3. Using the custom Extension
 -----------------------------

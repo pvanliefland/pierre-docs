@@ -102,7 +102,7 @@ We use the following structure:
   * js
   * vendors
 
-TODO: explain
+TODO: download jquery, respond, modernizr
 
 You have to add your bundle to the Assetic configuration, so that Assetic can parse your
 javascripts and stylesheets tags (in app/config.yml)::

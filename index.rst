@@ -19,6 +19,7 @@ Contents:
     introduction
     symfony_starter
     basic_bundle_dev
+    translations
     admin/index
 
 

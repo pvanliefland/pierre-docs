@@ -157,3 +157,20 @@ This is the logical name of the template, which is mapped to a physical location
 
 	/path/to/YournamespaceYourBundle/Resources/views/ControllerName/TemplateName
 
+Now, you probably would extend the layout.html.twig template into child templates.
+The extends tag should be the first tag in the template.
+Simply add this line below::
+
+	{% extends "YournamespaceYourBundle::layout.html.twig" %}
+
+If you want to print a block multiple times you can however use the block function.
+Define some blocks in your layout.html.twig template::
+
+	{% block title %}
+	{% block body %}
+	{% block stylesheets %}
+	{% block javascripts %}
+
+You will find more information about usage of this block function:
+
+- `Twig blocks <http://twig.sensiolabs.org/doc/tags/extends.html>`_

@@ -107,8 +107,8 @@ But keep their directory structure if it's the case.
 
 For example:
 
- * [vendors]
-  * [bootstrap]
+ * vendors (folder)
+  * bootstrap (folder)
   * jquery.js
   * modernizr.js
   * respond.js

@@ -1,5 +1,5 @@
-Extensions
-==========
+Twig Extensions
+===============
 
 This section explains the basics of how to implement and use a custom Twig extension.
 
@@ -8,11 +8,11 @@ This section explains the basics of how to implement and use a custom Twig exten
 
 Create the SiteExtention.php file following this folder structure::
 
-	YourNamespace/YourBundle/Twig/Extension/SiteExtension/SiteExtension.php
+	YourNamespace/YourBundle/Twig/Extension/SiteExtension.php
 
 Then define the namespace, and the class like the example below::
 
-	namespace Pharco\SiteBundle\Twig\Extension;
+	namespace YourNamespace\SiteBundle\Twig\Extension;
 
 	class SiteExtension extends \Twig_Extension
 	{

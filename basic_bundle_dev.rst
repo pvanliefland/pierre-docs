@@ -77,11 +77,11 @@ Here is a sample template, with the blocks you will need to create::
         {% endjavascripts %}
     {% endblock %}
 
-    {% block layout %}
+    {% block body %}
 
         {# Place your layout code in here #}
 
-    {% endblock layout %}
+    {% endblock body %}
 
 2. Assets setup
 ---------------
@@ -119,7 +119,7 @@ javascripts and stylesheets tags (in app/config.yml)::
     assetic:
 	    bundles: [“YournamespaceYourBundle”]
 
-You also need to launch the assets:install command, so that Symfony copies your asset files in an accessible directory
+You also need to launch the assets:install command, so that Symfony2 copies your asset files in an accessible directory
 (in this case, the web directory)::
 
     ./app/console assets:install --symlink web
@@ -127,7 +127,7 @@ You also need to launch the assets:install command, so that Symfony copies your 
 2. Controller and templates
 ---------------------------
 
-In the previous section (todo: add link), we let Symfony2 autimatically generate a controller for us.
+In the previous section (todo: add link), we let Symfony2 automatically generate a controller for us.
 
 Now, you can start the generated controller. Usually, the first step is to have an index action in the default
 controller, without any parameter, to serve as the starting point of the website or application.
@@ -147,4 +147,13 @@ You will find more information about how to use route and controllers in the fol
 
 - `Controller <http://symfony.com/doc/current/book/controller.html>`_
 - `Routing <http://symfony.com/doc/current/book/routing.html>`_
+
+Note : The controller renders the YournamespaceYourBundle:Default:index.html.twig template,
+which uses the following naming convention::
+
+	BundleName:ControllerName:TemplateName
+
+This is the logical name of the template, which is mapped to a physical location using the following convention::
+
+	/path/to/YournamespaceYourBundle/Resources/views/ControllerName/TemplateName
 

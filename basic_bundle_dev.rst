@@ -159,7 +159,7 @@ This is the logical name of the template, which is mapped to a physical location
 
 Now, you probably would extend the layout.html.twig template into child templates.
 The extends tag should be the first tag in the template.
-Simply add this line below::
+Simply add this line into your child template::
 
 	{% extends "YournamespaceYourBundle::layout.html.twig" %}
 
@@ -171,6 +171,6 @@ Define some blocks in your layout.html.twig template::
 	{% block stylesheets %}
 	{% block javascripts %}
 
-You will find more information about usage of this block function:
+You will find more information about how to use the block function:
 
 - `Twig blocks <http://twig.sensiolabs.org/doc/tags/extends.html>`_

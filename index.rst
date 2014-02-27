@@ -20,6 +20,7 @@ Contents:
     symfony_starter
     basic_bundle_dev
     translations
+    extensions
     admin/index
 
 

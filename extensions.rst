@@ -24,7 +24,7 @@ Then define the namespace, and the class like the example below::
 	    public function getFilters()
 	    {
 	        return [
-	            new \Twig_SimpleFilter(‘yourfiltername', [$this, 'YourFunctionName'], array('is_safe' => array('html'))),
+	            new \Twig_SimpleFilter('yourfiltername', [$this, 'YourFunctionName'], array('is_safe' => array('html'))),
 	        ];
 	    }
 

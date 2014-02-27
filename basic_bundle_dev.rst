@@ -100,14 +100,14 @@ We use the following structure:
   * less
   * fonts
   * js
-  * vendors
+  * vendor
 
 If you need to call some javascript libraries, download them in the vendors directory.
 But keep their directory structure if it's the case.
 
 For example:
 
- * vendors (folder)
+ * vendor (folder)
   * bootstrap (folder)
   * jquery.js
   * modernizr.js
@@ -117,7 +117,7 @@ You have to add your bundle to the Assetic configuration, so that Assetic can pa
 javascripts and stylesheets tags (in app/config.yml)::
 
     assetic:
-	    bundles: [“YournamespaceYourBundle”]
+	    bundles: ["YournamespaceYourBundle"]
 
 You also need to launch the assets:install command, so that Symfony2 copies your asset files in an accessible directory
 (in this case, the web directory)::

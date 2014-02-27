@@ -124,7 +124,7 @@ You also need to launch the assets:install command, so that Symfony2 copies your
 
     ./app/console assets:install --symlink web
 
-2. Controller and templates
+3. Controller and templates
 ---------------------------
 
 In the previous section (todo: add link), we let Symfony2 automatically generate a controller for us.

@@ -1,5 +1,5 @@
 Basic bundle development
-=========================
+========================
 
 This section explains the basics of how to work with Models, Views & Controllers in Symfony2.
 
@@ -102,7 +102,16 @@ We use the following structure:
   * js
   * vendors
 
-TODO: download jquery, respond, modernizr
+If you need to call some javascript libraries, download them in the vendors directory.
+But keep their directory structure if it's the case.
+
+For example:
+
+ * [vendors]
+  * [bootstrap]
+  * jquery.js
+  * modernizr.js
+  * respond.js
 
 You have to add your bundle to the Assetic configuration, so that Assetic can parse your
 javascripts and stylesheets tags (in app/config.yml)::
@@ -116,7 +125,7 @@ You also need to launch the assets:install command, so that Symfony copies your 
     ./app/console assets:install --symlink web
 
 2. Controller and templates
-----------------------------
+---------------------------
 
 In the previous section (todo: add link), we let Symfony2 autimatically generate a controller for us.
 

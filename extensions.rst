@@ -52,6 +52,4 @@ In your Twig template, use your custom filter like any other::
 
 	{{ 'some text'|yourfiltername }}
 
-See more documentation here:
-
-- `Custom Twig Extension <http://symfony.com/doc/current/cookbook/templating/twig_extension.html>`_
+See more documentation here: `Custom Twig Extension <http://symfony.com/doc/current/cookbook/templating/twig_extension.html>`_

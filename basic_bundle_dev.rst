@@ -187,3 +187,35 @@ Define some blocks in your layout.html.twig template::
 You will find more information about how to use the block function:
 
 - `Twig blocks <http://twig.sensiolabs.org/doc/tags/extends.html>`_
+
+4. Coding standards
+-------------------
+
+* PSR-0 is a standard that has been adopted by some frameworks like Zend Framework 2 to facilitate the autoloading process across platforms.
+This is accomplished by following namespace and class naming standards that correspond to the relative location of the resource or file in question.
+
+If you are not already familiar with PHP Specification Request, go ahead and read the following resource:
+
+-`PSR-0 <https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md>`_
+
+* CamelCase for Symfony2 entity:
+
+When contributing code to Symfony2, you must follow its coding standards. Symfony follows the standards defined in the PSR-0, PSR-1 and PSR-2 documents.
+
+In short :
+
+ * Use camelCase, not underscores, for variable, function and method names, arguments;
+ * Use underscores for option names and parameter names;
+ * Use namespaces for all classes;
+ * Prefix abstract classes with Abstract. Please note some early Symfony2 classes do not follow this convention and have not been renamed for backward compatibility reasons. However all new abstract classes must follow this naming convention;
+ * Suffix interfaces with Interface;
+ * Suffix traits with Trait;
+ * Suffix exceptions with Exception;
+ * Use alphanumeric characters and underscores for file names;
+ * Don't forget to look at the more verbose Conventions document for more subjective naming considerations.
+
+If you need more documentation, read those articles below:
+
+-`Coding Standards <http://symfony.com/doc/current/contributing/code/standards.html>`_
+-`Conventions <http://symfony.com/doc/current/contributing/code/conventions.html>`_
+

@@ -123,7 +123,7 @@ You can download some interesting libraries here:
 
 - `Modernizr <http://modernizr.com/download/>`_
 
-- `Respond <https://github.com/scottjehl/Respond>`_ (A fast & lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)
+- `Respond <https://github.com/scottjehl/Respond>`_ (fix for min/max-width CSS3 Media Queries for IE 6-8, and more)
 
 
 You have to add your bundle to the Assetic configuration, so that Assetic can parse your

@@ -220,3 +220,29 @@ If you need more documentation, read those articles below:
 
 -`Conventions <http://symfony.com/doc/current/contributing/code/conventions.html>`_
 
+* Twig coding standards
+
+Twig is the default template engine of Symfony2. Twig uses a syntax similar to the Django and Jinja template languages which inspired the Twig runtime environment.
+
+Filters, variables and functions names are in lowercase and can be more readable by using underscore to separate parts of their name.
+
+Example::
+
+	{% set foo_bar = 'foo' %}
+
+	{{ a_variable }}
+
+	{{ 'some example text'|custom_filter(some_parameters) }}
+
+	{{ render_my_function(some_parameters) }}
+
+
+If you want to learn more about how to use Twig synthax and semantic, please visit those pages:
+
+-`Twig for Template Designer <http://twig.sensiolabs.org/doc/templates.html>`_
+
+-`Coding Standards <http://twig.sensiolabs.org/doc/coding_standards.html>`_
+
+-`Extending Twig <http://twig.sensiolabs.org/doc/advanced.html#functions>`_
+
+

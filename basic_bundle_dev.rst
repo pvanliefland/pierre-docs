@@ -217,5 +217,6 @@ In short :
 If you need more documentation, read those articles below:
 
 -`Coding Standards <http://symfony.com/doc/current/contributing/code/standards.html>`_
+
 -`Conventions <http://symfony.com/doc/current/contributing/code/conventions.html>`_
 

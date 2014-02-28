@@ -114,10 +114,15 @@ For example:
   * respond.js
 
 You can download some interesting libraries here:
+
 - `Jquery <http://jquery.com/download/>`_
+
 - `Jquery UI <http://jqueryui.com/download/>`_
+
 - `Bootstrap <http://getbootstrap.com/getting-started/#download>`_
+
 - `Modernizr <http://modernizr.com/download/>`_
+
 - `Respond <https://github.com/scottjehl/Respond>`_ (A fast & lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)
 
 

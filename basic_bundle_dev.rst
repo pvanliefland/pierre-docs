@@ -243,6 +243,6 @@ If you want to learn more about how to use Twig synthax and semantic, please vis
 
 -`Coding Standards <http://twig.sensiolabs.org/doc/coding_standards.html>`_
 
--`Extending Twig <http://twig.sensiolabs.org/doc/advanced.html#functions>`_
+-`Extending Twig <http://twig.sensiolabs.org/doc/advanced.html>`_
 
 

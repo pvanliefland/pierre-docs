@@ -8,3 +8,4 @@ Intro etc
    :maxdepth: 2
 
    installation
+   sitemap

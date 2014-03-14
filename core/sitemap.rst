@@ -89,3 +89,12 @@ Finally all you need is to populate your services.yml file with one or more site
             arguments: [@doctrine.orm.entity_manager, "en"]
             tags:
                 - { name: snowcap_core.sitemap, alias: en }
+
+
+
+Now your main sitemap is available at http://yourhost/sitemap.xml.
+If you defined several with aliases then the main sitemap will list all of them and with the example we would have:
+
+* sitemap.xml
+* sitemap_fr.xml
+* sitemap_en.xml

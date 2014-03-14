@@ -4,7 +4,9 @@ Symfony Starter
 1. Create your local working copy
 ---------------------------------
 
-Go to your project directory and use composer to initialize your project::
+Go to your project directory and use composer to initialize your project:
+
+.. code-block:: console
 
     cd /path/to/your/www_directory
     composer create-project snowcap/symfony-starter-edition PROJECTNAME.local 2.3.x-dev
@@ -25,7 +27,9 @@ entered manually:
 2. Git setup
 ------------
 
-Then, you can Initialize your working copy and remote repository::
+Then, you can Initialize your working copy and remote repository:
+
+.. code-block:: console
 
     cd /path/to/your/www_directory/PROJECTNAME.local
     git init
@@ -37,7 +41,9 @@ If you don't know which git repository to use, ask Edwin.
 3. Generate your first bundle
 -----------------------------
 
-You can then create your first bundle::
+You can then create your first bundle:
+
+.. code-block:: console
 
     ./app/console generate:bundle
 
@@ -58,12 +64,16 @@ In order to comply with our standard practice, you will need to perform 2 more s
 In /path/to/your/project/directory/src/SomeNamespace/SomeBundle/Resources/config, rename services.xml to services.yml,
 and clear the file content.
 
-In /path/to/your/project/directory/src/SomeNamespace/SomeBundle/DependencyInjection/YourBundleNameExtension, replace::
+In /path/to/your/project/directory/src/SomeNamespace/SomeBundle/DependencyInjection/YourBundleNameExtension, replace:
+
+.. code-block:: php
 
     $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
     $loader->load('services.xml');
 
-by::
+by:
+
+.. code-block:: php
 
     $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
     $loader->load('services.yml');
@@ -72,11 +82,15 @@ by::
 -----------------------------------
 
 You can then edit your host file in order to be able to access the website. On Mac OS, you can open the terminal and
-type::
+type:
+
+.. code-block:: console
 
     sudo nano /etc/hosts
 
-Add the following lines to the host file::
+Add the following lines to the host file:
+
+.. code-block:: console
 
     127.0.0.1 PROJECTNAME.local
 
@@ -86,7 +100,9 @@ Normally, you can then access the newly created bundle in your browser::
 5. Commit and push
 ------------------
 
-Assuming you are still in your project directory::
+Assuming you are still in your project directory:
+
+.. code-block:: console
 
     git add .
     git commit -m "Project setup"

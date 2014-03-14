@@ -5,7 +5,9 @@ Sitemap
 Enable routing
 --------------
 
-In app/config/routing.yml add the following at the end of the file: ::
+In app/config/routing.yml add the following at the end of the file:
+
+.. code-block:: yaml
 
     # CoreBundle routing configuration
     snowcap_core_sitemap:
@@ -16,7 +18,9 @@ In app/config/routing.yml add the following at the end of the file: ::
 Create the service
 ------------------
 
-Then create a file that extends Snowcap\\CoreBundle\\Sitemap\\AbstractSitemap: ::
+Then create a file that extends Snowcap\\CoreBundle\\Sitemap\\AbstractSitemap:
+
+.. code-block:: php
 
     <?php
     // Acme/SiteBundle/Sitemap/Sitemap.php
@@ -72,7 +76,9 @@ Then create a file that extends Snowcap\\CoreBundle\\Sitemap\\AbstractSitemap: :
 Register the service(s)
 -----------------------
 
-Finally all you need is to populate your services.yml file with one or more sitemap services like this: ::
+Finally all you need is to populate your services.yml file with one or more sitemap services like this:
+
+.. code-block:: yaml
 
     # Acme/SiteBundle/Resources/config/services.yml
     services:

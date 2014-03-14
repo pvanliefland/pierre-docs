@@ -29,7 +29,9 @@ will find it in app/Resources/views.
 Your first step will be to create a base layout template. You can create it in the
 src/YourNamespace/YourBundle/Resources/views directory. Our convention is to call it layout.html.twig.
 
-Here is a sample template, with the blocks you will need to create::
+Here is a sample template, with the blocks you will need to create:
+
+.. code-block:: jinja
 
     {% extends "::base.html.twig" %}
 
@@ -128,7 +130,9 @@ You can download some interesting libraries here:
 
 
 You have to add your bundle to the Assetic configuration, so that Assetic can parse your
-javascripts and stylesheets tags (in app/config.yml)::
+javascripts and stylesheets tags (in app/config.yml):
+
+.. code-block:: yaml
 
     assetic:
 	    bundles: ["YournamespaceYourBundle"]
@@ -146,8 +150,11 @@ In the previous section (todo: add link), we let Symfony2 automatically generate
 Now, you can start the generated controller. Usually, the first step is to have an index action in the default
 controller, without any parameter, to serve as the starting point of the website or application.
 
-You can achieve that result by modifying the indexAction method and the associated @Route annotation::
+You can achieve that result by modifying the indexAction method and the associated @Route annotation:
 
+.. code-block:: php
+
+    <?php
     /**
      * @Route("")
      * @Template()
@@ -173,12 +180,16 @@ This is the logical name of the template, which is mapped to a physical location
 
 Now, you probably would extend the layout.html.twig template into child templates.
 The extends tag should be the first tag in the template.
-Simply add this line into your child template::
+Simply add this line into your child template:
+
+.. code-block:: jinja
 
 	{% extends "YournamespaceYourBundle::layout.html.twig" %}
 
 If you want to print a block multiple times you can however use the block function.
-Define some blocks in your layout.html.twig template::
+Define some blocks in your layout.html.twig template:
+
+.. code-block:: jinja
 
 	{% block title %}
 	{% block body %}
@@ -227,7 +238,9 @@ Twig is the default template engine of Symfony2. Twig uses a syntax similar to t
 
 Filters, variables and functions names are in lowercase and can be more readable by using underscore to separate parts of their name.
 
-Example::
+Example:
+
+.. code-block:: jinja
 
 	{% set foo_bar = 'foo' %}
 

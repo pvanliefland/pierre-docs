@@ -10,7 +10,11 @@ Create the SiteExtention.php file following this folder structure::
 
 	YourNamespace/YourBundle/Twig/Extension/SiteExtension.php
 
-Then define the namespace, and the class like the example below::
+Then define the namespace, and the class like the example below:
+
+.. code-block:: php
+
+    <?php
 
 	namespace YourNamespace\SiteBundle\Twig\Extension;
 
@@ -37,7 +41,9 @@ Then define the namespace, and the class like the example below::
 2. Register an Extension as a Service
 -------------------------------------
 
-In src/YourNamespace/YourBundle/config/services.yml file, add those lines::
+In src/YourNamespace/YourBundle/config/services.yml file, add those lines:
+
+.. code-block:: yaml
 
 	# TwigExtensions
 	YourNamespace.twig.site_extension:
@@ -48,7 +54,9 @@ In src/YourNamespace/YourBundle/config/services.yml file, add those lines::
 3. Using the custom Extension
 -----------------------------
 
-In your Twig template, use your custom filter like any other::
+In your Twig template, use your custom filter like any other:
+
+.. code-block:: jinja
 
 	{{ 'some text'|yourfiltername }}
 

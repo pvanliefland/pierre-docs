@@ -6,7 +6,9 @@ This section explains the basics of how to use translations in Symfony2.
 1. Enabling the translation Twig filter
 ---------------------------------------
 
-In the app/config/config.yml file, remove the '#' before the translator filter on line 7::
+In the app/config/config.yml file, remove the '#' before the translator filter on line 7:
+
+.. code-block:: yaml
 
 	framework
 		translator:  { fallback: %locale% }
@@ -23,7 +25,9 @@ For each language, create a messages.'thechosenlanguage'.yml
 Now you can structure the yml file as you will. Keep in mind to make it simple, don't use to many sub-levels.
 We recommend you to use only 3 levels.
 
-For example::
+For example:
+
+.. code-block:: yaml
 
 	sitename: Your site name
 
@@ -34,7 +38,9 @@ For example::
 	        title: Your campaign name
 	        description: ...
 
-In your twig template, simply call the translated message this way::
+In your twig template, simply call the translated message this way:
+
+.. code-block:: jinja
 
 	{{ 'meta.home.title'|trans }}
 

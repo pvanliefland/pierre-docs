@@ -20,7 +20,7 @@ Contents:
     symfony_starter
     basic_bundle_dev
     translations
-    extensions
+    twig_extensions
     admin/index
     core/index
 

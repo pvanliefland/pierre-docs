@@ -108,6 +108,7 @@ But keep their directory structure if it's the case.
 For example:
 
  * vendor (folder)
+
   * bootstrap (folder)
   * jquery.js
   * modernizr.js
@@ -192,7 +193,7 @@ You will find more information about how to use the block function:
 -------------------
 
 * PSR-0 is a standard that has been adopted by some frameworks like Zend Framework 2 to facilitate the autoloading process across platforms.
-This is accomplished by following namespace and class naming standards that correspond to the relative location of the resource or file in question.
+  This is accomplished by following namespace and class naming standards that correspond to the relative location of the resource or file in question.
 
 If you are not already familiar with PHP Specification Request, go ahead and read the following resource:
 
@@ -216,7 +217,7 @@ In short :
 
 If you need more documentation, read those articles below:
 
--`Coding Standards <http://symfony.com/doc/current/contributing/code/standards.html>`_
+-`Coding Standards <http://symfony.com/doc/current/contributing/code/standards.html>`__
 
 -`Conventions <http://symfony.com/doc/current/contributing/code/conventions.html>`_
 
@@ -241,7 +242,7 @@ If you want to learn more about how to use Twig synthax and semantic, please vis
 
 -`Twig for Template Designer <http://twig.sensiolabs.org/doc/templates.html>`_
 
--`Coding Standards <http://twig.sensiolabs.org/doc/coding_standards.html>`_
+-`Coding Standards <http://twig.sensiolabs.org/doc/coding_standards.html>`__
 
 -`Extending Twig <http://twig.sensiolabs.org/doc/advanced.html>`_
 

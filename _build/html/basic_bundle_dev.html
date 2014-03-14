@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Pierre Docs 1.0 documentation" href="index.html" />
-    <link rel="next" title="Snowcap admin bundle" href="admin/index.html" />
+    <link rel="next" title="Translations" href="translations.html" />
     <link rel="prev" title="Symfony Starter" href="symfony_starter.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="admin/index.html" title="Snowcap admin bundle"
+          <a href="translations.html" title="Translations"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="symfony_starter.html" title="Symfony Starter"
@@ -123,11 +123,11 @@ src/YourNamespace/YourBundle/Resources/views directory. Our convention is to cal
     {% endjavascripts %}
 {% endblock %}
 
-{% block layout %}
+{% block body %}
 
     {# Place your layout code in here #}
 
-{% endblock layout %}</pre>
+{% endblock body %}</pre>
 </div>
 </div>
 <div class="section" id="assets-setup">
@@ -149,24 +149,47 @@ Resources folder. You will need to create that directory yourself.</p>
 <li>less</li>
 <li>fonts</li>
 <li>js</li>
-<li>vendors</li>
+<li>vendor</li>
 </ul>
 </div></blockquote>
 </div></blockquote>
-<p>TODO: explain</p>
+<p>If you need to call some javascript libraries, download them in the vendors directory.
+But keep their directory structure if it&#8217;s the case.</p>
+<p>For example:</p>
+<blockquote>
+<div><ul class="simple">
+<li>vendor (folder)</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>bootstrap (folder)</li>
+<li>jquery.js</li>
+<li>modernizr.js</li>
+<li>respond.js</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>You can download some interesting libraries here:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://jquery.com/download/">Jquery</a></li>
+<li><a class="reference external" href="http://jqueryui.com/download/">Jquery UI</a></li>
+<li><a class="reference external" href="http://getbootstrap.com/getting-started/#download">Bootstrap</a></li>
+<li><a class="reference external" href="http://modernizr.com/download/">Modernizr</a></li>
+<li><a class="reference external" href="https://github.com/scottjehl/Respond">Respond</a> (fix for min/max-width CSS3 Media Queries for IE 6-8, and more)</li>
+</ul>
 <p>You have to add your bundle to the Assetic configuration, so that Assetic can parse your
 javascripts and stylesheets tags (in app/config.yml):</p>
 <div class="highlight-python"><pre>assetic:
-        bundles: [“YournamespaceYourBundle”]</pre>
+        bundles: ["YournamespaceYourBundle"]</pre>
 </div>
-<p>You also need to launch the assets:install command, so that Symfony copies your asset files in an accessible directory
+<p>You also need to launch the assets:install command, so that Symfony2 copies your asset files in an accessible directory
 (in this case, the web directory):</p>
 <div class="highlight-python"><pre>./app/console assets:install --symlink web</pre>
 </div>
 </div>
 <div class="section" id="controller-and-templates">
-<h2>2. Controller and templates<a class="headerlink" href="#controller-and-templates" title="Permalink to this headline">¶</a></h2>
-<p>In the previous section (todo: add link), we let Symfony2 autimatically generate a controller for us.</p>
+<h2>3. Controller and templates<a class="headerlink" href="#controller-and-templates" title="Permalink to this headline">¶</a></h2>
+<p>In the previous section (todo: add link), we let Symfony2 automatically generate a controller for us.</p>
 <p>Now, you can start the generated controller. Usually, the first step is to have an index action in the default
 controller, without any parameter, to serve as the starting point of the website or application.</p>
 <p>You can achieve that result by modifying the indexAction method and the associated &#64;Route annotation:</p>
@@ -184,6 +207,77 @@ public function indexAction($name)
 <li><a class="reference external" href="http://symfony.com/doc/current/book/controller.html">Controller</a></li>
 <li><a class="reference external" href="http://symfony.com/doc/current/book/routing.html">Routing</a></li>
 </ul>
+<p>Note : The controller renders the YournamespaceYourBundle:Default:index.html.twig template,
+which uses the following naming convention:</p>
+<div class="highlight-python"><pre>BundleName:ControllerName:TemplateName</pre>
+</div>
+<p>This is the logical name of the template, which is mapped to a physical location using the following convention:</p>
+<div class="highlight-python"><pre>/path/to/YournamespaceYourBundle/Resources/views/ControllerName/TemplateName</pre>
+</div>
+<p>Now, you probably would extend the layout.html.twig template into child templates.
+The extends tag should be the first tag in the template.
+Simply add this line into your child template:</p>
+<div class="highlight-python"><pre>{% extends "YournamespaceYourBundle::layout.html.twig" %}</pre>
+</div>
+<p>If you want to print a block multiple times you can however use the block function.
+Define some blocks in your layout.html.twig template:</p>
+<div class="highlight-python"><pre>{% block title %}
+{% block body %}
+{% block stylesheets %}
+{% block javascripts %}</pre>
+</div>
+<p>You will find more information about how to use the block function:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://twig.sensiolabs.org/doc/tags/extends.html">Twig blocks</a></li>
+</ul>
+</div>
+<div class="section" id="coding-standards">
+<h2>4. Coding standards<a class="headerlink" href="#coding-standards" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>PSR-0 is a standard that has been adopted by some frameworks like Zend Framework 2 to facilitate the autoloading process across platforms.
+This is accomplished by following namespace and class naming standards that correspond to the relative location of the resource or file in question.</li>
+</ul>
+<p>If you are not already familiar with PHP Specification Request, go ahead and read the following resource:</p>
+<p>-<a class="reference external" href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md">PSR-0</a></p>
+<ul class="simple">
+<li>CamelCase for Symfony2 entity:</li>
+</ul>
+<p>When contributing code to Symfony2, you must follow its coding standards. Symfony follows the standards defined in the PSR-0, PSR-1 and PSR-2 documents.</p>
+<p>In short :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Use camelCase, not underscores, for variable, function and method names, arguments;</li>
+<li>Use underscores for option names and parameter names;</li>
+<li>Use namespaces for all classes;</li>
+<li>Prefix abstract classes with Abstract. Please note some early Symfony2 classes do not follow this convention and have not been renamed for backward compatibility reasons. However all new abstract classes must follow this naming convention;</li>
+<li>Suffix interfaces with Interface;</li>
+<li>Suffix traits with Trait;</li>
+<li>Suffix exceptions with Exception;</li>
+<li>Use alphanumeric characters and underscores for file names;</li>
+<li>Don&#8217;t forget to look at the more verbose Conventions document for more subjective naming considerations.</li>
+</ul>
+</div></blockquote>
+<p>If you need more documentation, read those articles below:</p>
+<p>-<a class="reference external" href="http://symfony.com/doc/current/contributing/code/standards.html">Coding Standards</a></p>
+<p>-<a class="reference external" href="http://symfony.com/doc/current/contributing/code/conventions.html">Conventions</a></p>
+<ul class="simple">
+<li>Twig coding standards</li>
+</ul>
+<p>Twig is the default template engine of Symfony2. Twig uses a syntax similar to the Django and Jinja template languages which inspired the Twig runtime environment.</p>
+<p>Filters, variables and functions names are in lowercase and can be more readable by using underscore to separate parts of their name.</p>
+<p>Example:</p>
+<div class="highlight-python"><pre>{% set foo_bar = 'foo' %}
+
+{{ a_variable }}
+
+{{ 'some example text'|custom_filter(some_parameters) }}
+
+{{ render_my_function(some_parameters) }}</pre>
+</div>
+<p>If you want to learn more about how to use Twig synthax and semantic, please visit those pages:</p>
+<p>-<a class="reference external" href="http://twig.sensiolabs.org/doc/templates.html">Twig for Template Designer</a></p>
+<p>-<a class="reference external" href="http://twig.sensiolabs.org/doc/coding_standards.html">Coding Standards</a></p>
+<p>-<a class="reference external" href="http://twig.sensiolabs.org/doc/advanced.html">Extending Twig</a></p>
 </div>
 </div>
 
@@ -198,7 +292,8 @@ public function indexAction($name)
 <li><a class="reference internal" href="#">Basic bundle development</a><ul>
 <li><a class="reference internal" href="#creation-of-a-base-layout-template">1. Creation of a base layout template</a></li>
 <li><a class="reference internal" href="#assets-setup">2. Assets setup</a></li>
-<li><a class="reference internal" href="#controller-and-templates">2. Controller and templates</a></li>
+<li><a class="reference internal" href="#controller-and-templates">3. Controller and templates</a></li>
+<li><a class="reference internal" href="#coding-standards">4. Coding standards</a></li>
 </ul>
 </li>
 </ul>
@@ -207,8 +302,8 @@ public function indexAction($name)
   <p class="topless"><a href="symfony_starter.html"
                         title="previous chapter">Symfony Starter</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="admin/index.html"
-                        title="next chapter">Snowcap admin bundle</a></p>
+  <p class="topless"><a href="translations.html"
+                        title="next chapter">Translations</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/basic_bundle_dev.txt"
@@ -238,7 +333,7 @@ public function indexAction($name)
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="admin/index.html" title="Snowcap admin bundle"
+          <a href="translations.html" title="Translations"
              >next</a> |</li>
         <li class="right" >
           <a href="symfony_starter.html" title="Symfony Starter"

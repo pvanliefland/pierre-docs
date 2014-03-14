@@ -1,13 +1,27 @@
 Installation
-=======================================
+============
 
 
-Do this
----------
+Using composer
+--------------
 
-dqsdqsdqsdqs
+In your composer.json add the following line in the "require" block: ::
 
-Do that
------------
+    "snowcap/core-bundle": "dev-master"
 
-qdsdqsdqsqds
+Then launch the following command: ::
+
+    php composer.phar update snowcap/core-bundle
+
+The final step is enabling the bundle: ::
+
+    <?php
+    // app/AppKernel.php
+
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            new Snowcap\CoreBundle\SnowcapCoreBundle(),
+        );
+    }

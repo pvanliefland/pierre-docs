@@ -138,9 +138,11 @@ javascripts and stylesheets tags (in app/config.yml):
 	    bundles: ["YournamespaceYourBundle"]
 
 You also need to launch the assets:install command, so that Symfony2 copies your asset files in an accessible directory
-(in this case, the web directory)::
+(in this case, the web directory):
 
-    ./app/console assets:install --symlink web
+.. code-block:: console
+
+	./app/console assets:install --symlink web
 
 3. Controller and templates
 ---------------------------
@@ -170,11 +172,15 @@ You will find more information about how to use route and controllers in the fol
 - `Routing <http://symfony.com/doc/current/book/routing.html>`_
 
 Note : The controller renders the YournamespaceYourBundle:Default:index.html.twig template,
-which uses the following naming convention::
+which uses the following naming convention:
+
+.. code-block:: console
 
 	BundleName:ControllerName:TemplateName
 
-This is the logical name of the template, which is mapped to a physical location using the following convention::
+This is the logical name of the template, which is mapped to a physical location using the following convention:
+
+.. code-block:: console
 
 	/path/to/YournamespaceYourBundle/Resources/views/ControllerName/TemplateName
 

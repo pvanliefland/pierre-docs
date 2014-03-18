@@ -86,7 +86,7 @@ SnowcapAdminBundle uses assetic in order to speed up the display of the admin pa
 	# app/config/config.yml
 
 	assetic:
-	    debug:          "%kernel.debug%"
+	    debug: "%kernel.debug%"
 	    use_controller: false
 	    bundles: ["YournamespaceAdminBundle", "SnowcapAdminBundle"]
 	    filters:

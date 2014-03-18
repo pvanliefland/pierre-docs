@@ -9,3 +9,4 @@ Intro etc
 
    installation
    admin_classes
+   custom_controller

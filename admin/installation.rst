@@ -79,7 +79,7 @@ Your bundle must extend SnowcapAdminBundle in order for it to work.
 5. Configure Assetic
 --------------------
 
-SnowcapAdminBundle uses assetic in order to speed up the display of the admin pages. You must add SnowcapAdminBundle to the list of configured assetic bundles. Additionally, the lessphp and cssrewrite filters must be enabled for the AdminBundle to work.
+SnowcapAdminBundle uses assetic in order to speed up the display of the admin pages. You must add SnowcapAdminBundle to the list of configured assetic bundles. Additionally, cssrewrite filter must be enabled for the AdminBundle to work.
 
 .. code-block:: yaml
 

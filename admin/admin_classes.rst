@@ -35,7 +35,7 @@ Step by step, we are going to generate a Page entity
 	    {
 	        return $this->getDatalistFactory()
 	            ->createBuilder('yournamespace_admin_content', array('admin' => $this))
-	            ->addField('adminTitle', 'text', array('label' => 'page.datalist.title'))
+	            ->addField('title', 'text', array('label' => 'page.datalist.title'))
 	            ->addField('publishedOn', 'datetime', array('label' => 'page.datalist.published_on'))
 	            ->getDatalist();
 	    }
@@ -72,13 +72,14 @@ Step by step, we are going to generate a Page entity
 ---------------------
 
 Now, you have to build the form to save your data. Be sure to follow the entity structure.
+Here, we have a page entity wich contains a title, a slug, a status, an introduction, a body and an image.
 
 .. code-block:: php
 
 	<?php
 	// src/Yournamespace/AdminBundle/Form/Type/PageType.php
 
-	namespace Isostar\AdminBundle\Form\Type;
+	namespace Yournamespace\AdminBundle\Form\Type;
 
 	use Yournamespace\YourBundle\Entity\Page;
 	use Symfony\Component\Form\AbstractType;
@@ -87,7 +88,46 @@ Now, you have to build the form to save your data. Be sure to follow the entity 
 
 	class PageType extends AbstractType
 	{
+		public function buildForm(FormBuilderInterface $builder, array $options)
+		{
+			->add('title', 'text', ['label' => 'form.label.title'])
+            ->add('slug', 'snowcap_admin_slug', ['target' => 'title', 'label' => 'form.label.slug'])
+            ->add('introduction', 'text', ['label' => 'form.label.introduction'])
+            ->add('body', 'text', ['label' => 'form.label.body'])
+            ->add('imageFile', 'snowcap_core_image', [
+                    'label' => 'form.label.file',
+                    'file_path' => 'image',
+                    'im_format' => '250x250',
+                    'allow_delete' => true
+            ])
+            ->add(
+                'status',
+                'choice', [
+                    'label' => 'form.label.status',
+                    'choices' => Page::getStatusChoices()
+                ]
+            );
+		}
 
+		/**
+	     * Returns the name of this type.
+	     *
+	     * @return string The name of this type
+	     */
+	    public function getName()
+	    {
+	        return 'yournamespace_admin_page';
+	    }
+
+	    /**
+	     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+	     */
+	    public function setDefaultOptions(OptionsResolverInterface $resolver)
+	    {
+	        $resolver->setDefaults([
+	            'data_class' => 'Yournamespace\YourBundle\Entity\Page',
+	            'translation_domain' => 'admin'
+	        ]);
+	    }
 	}
-
 

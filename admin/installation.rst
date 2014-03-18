@@ -125,7 +125,7 @@ You can then change your security.yml config file:
 
 .. code-block:: yaml
 
-# app/config/security.yml
+	# app/config/security.yml
 
 	snowcap_admin:
 	    security:

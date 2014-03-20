@@ -19,54 +19,54 @@ Step by step, we are going to generate a Page entity
 
 .. code-block:: php
 
-	<?php
-	// src/Yournamespace/AdminBundle/Admin/PageAdmin.php
+    <?php
+    // src/Yournamespace/AdminBundle/Admin/PageAdmin.php
 
-	namespace Yournamespace\AdminBundle\Admin;
+    namespace Yournamespace\AdminBundle\Admin;
 
-	class PageAdmin extends ContentAdmin
-	{
-		/**
-	     * Return the main admin list for this content
-	     *
-	     * @return \Snowcap\AdminBundle\Datalist\DatalistInterface
-	     */
-		public function getDatalist()
-	    {
-	        return $this->getDatalistFactory()
-	            ->createBuilder('yournamespace_admin_content', array('admin' => $this))
-	            ->addField('title', 'text', array('label' => 'page.datalist.title'))
-	            ->addField('publishedOn', 'datetime', array('label' => 'page.datalist.published_on'))
-	            ->getDatalist();
-	    }
-	    /**
-	     * @return string
-	     */
-	    public function getEntityClass()
-	    {
-	        return 'Yournamespace\YourBundle\Entity\Page';
-	    }
+    class PageAdmin extends ContentAdmin
+    {
+        /**
+         * Return the main admin list for this content
+         *
+         * @return \Snowcap\AdminBundle\Datalist\DatalistInterface
+         */
+        public function getDatalist()
+        {
+            return $this->getDatalistFactory()
+                ->createBuilder('yournamespace_admin_content', array('admin' => $this))
+                ->addField('title', 'text', array('label' => 'page.datalist.title'))
+                ->addField('publishedOn', 'datetime', array('label' => 'page.datalist.published_on'))
+                ->getDatalist();
+        }
+        /**
+         * @return string
+         */
+        public function getEntityClass()
+        {
+            return 'Yournamespace\YourBundle\Entity\Page';
+        }
 
-	    /**
-	     * Return the main admin form for this content
-	     *
-	     * @return \Symfony\Component\Form\Form
-	     */
-	    public function getForm()
-	    {
-	        return $this->getFormFactory()->create(new PageType());
-	    }
+        /**
+         * Return the main admin form for this content
+         *
+         * @return \Symfony\Component\Form\Form
+         */
+        public function getForm()
+        {
+            return $this->getFormFactory()->create(new PageType());
+        }
 
-	    /**
-	     * @param mixed $entity
-	     *
-	     * @return string
-	     */
-	    public function getEntityName($entity)
-	    {
-	        return $entity->getAdminTitle();
-	    }
-	}
+        /**
+         * @param mixed $entity
+         *
+         * @return string
+         */
+        public function getEntityName($entity)
+        {
+            return $entity->getAdminTitle();
+        }
+    }
 
 2. Create a Form type
 ---------------------
@@ -76,21 +76,21 @@ Here, we have a page entity wich contains a title, a slug, a status, an introduc
 
 .. code-block:: php
 
-	<?php
-	// src/Yournamespace/AdminBundle/Form/Type/PageType.php
+    <?php
+    // src/Yournamespace/AdminBundle/Form/Type/PageType.php
 
-	namespace Yournamespace\AdminBundle\Form\Type;
+    namespace Yournamespace\AdminBundle\Form\Type;
 
-	use Yournamespace\YourBundle\Entity\Page;
-	use Symfony\Component\Form\AbstractType;
-	use Symfony\Component\Form\FormBuilderInterface;
-	use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+    use Yournamespace\YourBundle\Entity\Page;
+    use Symfony\Component\Form\AbstractType;
+    use Symfony\Component\Form\FormBuilderInterface;
+    use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-	class PageType extends AbstractType
-	{
-		public function buildForm(FormBuilderInterface $builder, array $options)
-		{
-			->add('title', 'text', ['label' => 'form.label.title'])
+    class PageType extends AbstractType
+    {
+        public function buildForm(FormBuilderInterface $builder, array $options)
+        {
+            ->add('title', 'text', ['label' => 'form.label.title'])
             ->add('slug', 'snowcap_admin_slug', ['target' => 'title', 'label' => 'form.label.slug'])
             ->add('introduction', 'text', ['label' => 'form.label.introduction'])
             ->add('body', 'text', ['label' => 'form.label.body'])
@@ -107,27 +107,26 @@ Here, we have a page entity wich contains a title, a slug, a status, an introduc
                     'choices' => Page::getStatusChoices()
                 ]
             );
-		}
+        }
 
-		/**
-	     * Returns the name of this type.
-	     *
-	     * @return string The name of this type
-	     */
-	    public function getName()
-	    {
-	        return 'yournamespace_admin_page';
-	    }
+        /**
+         * Returns the name of this type.
+         *
+         * @return string The name of this type
+         */
+        public function getName()
+        {
+            return 'yournamespace_admin_page';
+        }
 
-	    /**
-	     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
-	     */
-	    public function setDefaultOptions(OptionsResolverInterface $resolver)
-	    {
-	        $resolver->setDefaults([
-	            'data_class' => 'Yournamespace\YourBundle\Entity\Page',
-	            'translation_domain' => 'admin'
-	        ]);
-	    }
-	}
-
+        /**
+         * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+         */
+        public function setDefaultOptions(OptionsResolverInterface $resolver)
+        {
+            $resolver->setDefaults([
+                'data_class' => 'Yournamespace\YourBundle\Entity\Page',
+                'translation_domain' => 'admin'
+            ]);
+        }
+    }

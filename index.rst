@@ -18,6 +18,7 @@ Contents:
 
     introduction
     symfony_starter
+    working_copy
     basic_bundle_dev
     translations
     twig_extensions

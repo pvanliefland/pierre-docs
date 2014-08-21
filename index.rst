@@ -22,6 +22,7 @@ Contents:
     basic_bundle_dev
     translations
     twig_extensions
+    testing
     less
     admin/index
     core/index
